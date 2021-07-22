@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comsoftware.engine.mapper.PlayerMapper">
+    <select id="getPlayerBaseInfo" resultType="comsoftware.engine.entity.PlayerBaseInfo">
+        select *
+        from `PlayerBaseInfo`
+        where `id` = #{id};
+    </select>
+
+    <select id="getPlayerInjuredData" resultType="comsoftware.engine.entity.PlayerInjuredData">
+        select *
+        from `PlayerInjuredData`
+        where `playerId` = #{id};
+    </select>
+
+    <select id="getPlayerMatchData" resultType="comsoftware.engine.entity.PlayerMatchData">
+        select *
+        from `PlayerMatchData`
+        where `playerId` = #{id};
+    </select>
+
+    <select id="getPlayerTransferData" resultType="comsoftware.engine.entity.PlayerTransferData">
+        select *
+        from `PlayerTransferData`
+        where `playerId` = #{id};
+    </select>
+
+    <select id="getPlayerHotNews" resultType="comsoftware.engine.entity.PlayerNewsTitles">
+        select *
+        from `PlayerNewsTitles`
+        where `playerId` = #{id};
+    </select>
+
+    <select id="getPlayerImgURL" resultType="String">
+        select imgURL
+        from `playerImgURL`
+        where `playerId` = #{id};
+    </select>
+
+    <select id="getPlayerHotWords" resultType="comsoftware.engine.entity.HotWord">
+        select `word` as text, `count` as value
+        from `PlayerWord`
+        where id = #{id};
+    </select>
+
+    <select id="getPlayerTag" resultType="comsoftware.engine.entity.PlayerTags">
+        select `player_tags` as tag, `player_traits` as trait
+        from playerFIFAData
+        where playerId = #{id};
+    </select>
+
+    <select id="getPlayerHonorRecord" resultType="comsoftware.engine.entity.PlayerHonorRecord">
+        select *
+        from `PlayerHonorRecord`
+        where playerId = #{id};
+    </select>
+
+    <select id="getPlayerMatchDataByType" resultType="comsoftware.engine.entity.PlayerMatchData2">
+        select *
+        from `PlayerMatchData2`
+        where `playerId` = #{id} and `type` = #{type};
+    </select>
+
+    <select id="getPlayerNews" resultType="comsoftware.engine.entity.PlayerNews" >
+        select titles, urls, img_urls
+        from `PlayerNews`
+        where `playerId` = #{id};
+    </select>
+
+</mapper>
